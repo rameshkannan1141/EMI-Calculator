@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="Fevicone.png" type="image/x-icon">
+    <link rel="stylesheet" href="EMI.css">
+    <title>EMI Calculator</title>
+
+
+
+</head>
+<body onload="pageOnload()">
+
+    <div class="outer-wrapper">
+
+        <div class="whole-wrapper">
+
+            <div class="top-buttons">
+                
+                <button type="button" class="HL-btn">Home Loan</button>
+                <button type="button" class="PL-btn">Personal Loan</button>
+                <button type="button" class="CL-btn" id="CL-btn-Id">Car Loan</button>
+            
+            </div>
+    
+            <div class="sub-whole-wrapper">
+
+                <div class="amount-div">
+                    <div>
+                        <p>Home Loan Amount</p>
+                        <span id="HLA-span"> <input type="number" id="HLA-inp" min="0"  value="0" onchange="onchangeRange(this)" ><label for="" id="a-INR">&#8377;</label> </span>
+    
+                    </div>
+                    <input class="SWW-range" id="HLA-range"  type="range"  min="0" max="200" value="0" onchange="onchangeRange(this)">
+                    
+                    <div id="measure-div">
+
+                        <div id="zero-div-wrapper"> 
+                            <div id="zero-div"><span>|</span><span class="rangeValue-span">0</span></div>
+
+                        </div>
+                         <div id="HLA-inner-measure-div">
+
+                            <!-- <div><div><span>|</span> <span class="rangeValue-span">25L</span></div></div> -->
+
+                        </div>
+                        
+
+                    </div>
+                
+                </div>
+    
+                <div class="interestRate-div">
+                    <div>
+                        <p>Interest Rate</p>
+                        <span id="IR-span"><input type="number" id="IR-inp" min="0"  value="0" onchange="onchangeRange(this)" ><label for="" id="r-PER">&#x25;</label></span>
+    
+                    </div>
+                    <input class="SWW-range" id="IR-range" type="range" min="50" max="200" value="0"  onchange="onchangeRange(this)">
+
+                    <div id="measure-div">
+
+                        <div id="zero-div"> 
+                            <div id="zero-div"><span>|</span><span class="rangeValue-span">5</span></div>
+
+                        </div>
+                         <div id="IR-inner-measure-div">
+
+                            <!-- <div><div><span>|</span> <span class="rangeValue-span">7.5</span> </div></div> -->
+
+                          </div>
+                        
+
+                    </div>
+                
+                </div>
+    
+                <div class="Tenure-div">
+                    <div>
+                        <p>Loan Tenure</p>
+                        <span id="T-span"> <input type="number" id="T-inp" min="0" value="0" onchange="onchangeRange(this)" > <label for="" id="t-YR">Yr</label> <label for="" id="t-MON">Mo</label></span>
+    
+                    </div>
+                    <input class="SWW-range" id="T-range" type="range" min="0" max="360" value="0" onchange="onchangeRange(this)">
+                    
+                    <div id="measure-div">
+
+                        <div id="zero-div"> 
+                            <div id="zero-div"><span>|</span><span class="rangeValue-span">0</span></div>
+
+                        </div>
+
+                         <div id="T-inner-measure-div">
+
+                            <!-- <div><div><span>|</span> <span class="rangeValue-span">60</span></div></div> -->
+                        
+                        </div>
+                        
+
+                    </div>
+
+                
+                </div>
+    
+            </div>
+    
+            <div class="result-whole-wrapper">
+    
+                <div class="results-div">
+    
+                    <div class="emi-div">
+                        <p>Loan EMI</p>
+                        <span> <label for="">&#8377;</label> <span id="loan_EMI">0</span> </span>
+                        
+    
+                    </div>
+    
+                    <div class="total-interest-div">
+                        <p>Total Interest Payable</p>
+                        <span> <label for="">&#8377;</label> <span id="total_IP">0</span> </span>
+    
+                    </div>
+    
+                    <div class="total-payment-div">
+                        <p>Total Payment <br> (Principal + Interest)</p>
+                        <span> <label for="">&#8377;</label> <span id="P-I">0</span> </span>
+    
+                    </div>
+    
+    
+                </div>
+    
+                <div class="round-chart-result">
+                    <h1>Break-up of Total Payment</h1>
+
+                    <div>
+                        <canvas id="myChart"  ></canvas>
+
+                    </div>  
+                    
+    
+                </div>
+    
+            </div>
+
+            <div class="date-class">
+                <p>Schedule showing EMI payments starting from</p>
+                 <input type="month" id="date-inp" onchange="year_Month_Func()">
+            </div>
+
+            
+
+            <div class="big-Chart">
+
+                <div>
+                    <canvas id="my-Big-Chart" ></canvas>
+
+                </div>  
+
+
+            </div>
+
+
+            <div class="table-wrapper">
+                
+                <table class="table-class" >
+
+                    <!-- <tr>
+                         <td class="fi-yr-col" onclick="fi_yr_col_click()">
+                            <img class="fi-yr-col-img"  >
+                            <p> 2022 </p>
+                        </td>
+                        <td>princ</td>
+                        <td>int</td>
+                        <td>tot</td>
+                        <td>bal</td>
+                        <td>lpt</td>
+
+                    </tr> -->
+                    
+
+                    <!-- <tr class="mon-rows">
+                        
+                        <td class="fi-mo-col" >
+                            <p> Dec </p>
+                        </td>
+                        <td>princ</td>
+                        <td>int</td>
+                        <td>tot</td>
+                        <td>bal</td>
+                        <td>lpt</td>
+
+                    </tr> -->
+
+                </table>
+
+            </div>
+            
+    
+        </div>
+
+
+
+    </div>
+
+    
+    
+</body>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script src="EMI.js"></script>
+</html>

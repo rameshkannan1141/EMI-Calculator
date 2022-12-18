@@ -1,0 +1,442 @@
+body{
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    
+    display:flex;
+    justify-content: center;
+    
+    
+    padding-top: 10%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+    
+    
+}
+
+*{
+    outline: none;
+}
+
+.outer-wrapper{
+    background-color: rgb(238, 238, 238);
+    padding: 10px;
+    width: 85%;
+}
+
+.whole-wrapper{
+    border: 3px rgba(128, 128, 128,0.5);
+    border-style:dashed ;
+    
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    
+    
+}
+.top-buttons{
+    display: flex;
+}
+
+
+#CL-btn-Id{
+    border-right: 1px solid rgba(128, 128, 128,0.5);
+}
+
+.HL-btn,.PL-btn,.CL-btn{
+    border: 1px solid rgba(128, 128, 128,0.5);
+    border-right: none;
+    font-size: 1em;
+
+    padding: 15px 10px;
+
+}
+
+.HL-btn{
+    border-radius:6px 0 0 0;
+    background-color: rgba(128, 128, 128,0.2);
+    border-bottom: none;
+    
+}
+
+.PL-btn{
+    background-color: rgba(128, 128, 128,0.2);
+    border-bottom: hidden;
+}
+
+.CL-btn{
+    border-radius:0 6px 0 0;
+    background-color: rgba(128, 128, 128,0.2);
+
+    border-bottom: hidden;
+}
+
+
+.currentClass{
+    background-color: rgb(238, 238, 238);
+    border-bottom: 1px solid  rgb(238, 238, 238);
+}
+.otherClass{
+    background-color: rgba(128, 128, 128,0.2);
+    border-bottom:none ;
+}
+.otherClass:hover{
+    background-color: rgb(238, 238, 238);
+    border-bottom: 1px solid rgba(128, 128, 128,0.5);
+}
+
+
+
+
+
+.sub-whole-wrapper{
+    margin-top: -1px;
+    border: 1px solid rgba(128, 128, 128,0.5);
+    padding: 20px 30px 20px 20px ;
+
+    
+}
+
+
+.sub-whole-wrapper>div>div input{
+    outline: none;
+    padding: 8px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 5px 0px 0px 5px ;
+}
+
+.amount-div div,.interestRate-div div,.Tenure-div div{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+   
+    
+}
+
+#HLA-span,#IR-span,#T-span{
+    display: flex;
+    border: 1px solid rgba(207, 218, 230,1);
+    border-radius: 5px;
+}
+#a-INR,#r-PER,#t-YR,#t-MON{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(207, 218, 230,0.5);
+    padding: 11px;
+    border-radius: 0px 5px 5px 0px ;
+    width: 25px;
+}
+
+.mon-OR-yr{
+    background-color: rgb(203, 211, 218);
+    box-shadow: 0 0 5px rgba(0, 0, 0,0.5);
+
+}
+
+.SWW-range{
+   width: 100%;
+   height: 7px;
+   background: linear-gradient(to right, tomato 0%, tomato 0%, #fff 0% , #fff 100%);
+   border-radius: 50px;
+   -webkit-appearance:none;
+
+}
+.SWW-range::-webkit-slider-thumb{
+    appearance: none;
+
+    height: 17px;
+    width: 17px;
+    border-radius: 50%;
+    background-color: tomato;
+
+   }
+
+#measure-div{
+    display: flex;
+    justify-content: flex-start;
+    /* border: 1px solid black; */
+
+    font-size: .75em;
+    color: rgba(128, 128, 128,.6);
+    
+    
+}
+
+#measure-div>div {
+    display: flex;
+    flex-direction:row;
+    /* justify-content: space-evenly; */
+    /* border: 1px solid black; */
+    
+    }
+
+    #zero-div{
+        display: flex;
+        flex-direction: column;
+        width: 10px;
+    }
+/* #measure-div>div>div{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+
+    
+
+    width: 0px;
+    
+    
+    
+} */
+
+
+#HLA-inner-measure-div{
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+#HLA-inner-measure-div>div{
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: end;
+    width: 100%;
+}
+
+#HLA-inner-measure-div>div>div{
+    /* border: 1px solid black; */
+    display: flex;
+    flex-direction: column;
+    width: 0;
+    
+}
+
+
+#IR-inner-measure-div{
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+#IR-inner-measure-div>div{
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: end;
+    width: 100%;
+}
+
+#IR-inner-measure-div>div>div{
+    /* border: 1px solid black; */
+    display: flex;
+    flex-direction: column;
+    width: 0;
+    
+}
+
+
+
+#T-inner-measure-div{
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+#T-inner-measure-div>div{
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: end;
+    width: 100%;
+}
+
+#T-inner-measure-div>div>div{
+    /* border: 1px solid black; */
+    display: flex;
+    flex-direction: column;
+    width: 0;
+    
+}
+.rangeValue-span{
+    color: rgba(0, 0, 0,0.7);
+}
+
+
+
+
+.result-whole-wrapper{
+    display: flex;
+    /* border: 2px solid black; */
+    justify-content: center;
+    border: 1px solid rgba(128, 128, 128,0.5);
+    border-top: none;
+    
+}
+
+
+
+
+.results-div{
+    border-right: 1px solid rgba(128, 128, 128,0.5);
+    /* margin-top: -17px; */
+    border-top: transparent;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    
+}
+.results-div>div{
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    line-height: 1.1;
+
+    height: 100px;
+}
+.results-div>div>span{
+    color: rgba(0, 0, 0,0.8);
+    font-weight: bold;
+    font-size: 1.7em;
+
+}
+
+.emi-div,.total-interest-div{
+    border-bottom:1px dotted  rgba(128, 128, 128,0.5);
+}
+
+.round-chart-result{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+    padding: 20px;
+}
+.round-chart-result >h1{
+    margin: 0;
+    line-height: 0;
+    font-size: 1.2em;
+    padding: 10px;
+}
+
+
+.date-class{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    border: 1px solid rgba(128, 128, 128,0.5);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 15px;
+}
+
+#date-inp{
+    border: 1px solid rgba(207, 218, 230,1);
+    width: 170px;
+    font-size: 1.2em;
+    padding: 8px;
+    border-radius: 5px;
+}
+
+
+
+
+
+
+.table-class{
+    
+    border: 1px solid rgba(128, 128, 128,0.5);
+    width: 100%;
+    border-collapse: collapse;
+
+}
+td,tr{
+    
+    border: 1px solid rgba(128, 128, 128,0.5);
+    
+  }
+
+.h-row {
+    height: 60px;
+    background-color: #DEDEDE;
+}
+.principal{
+    background-color: #88A825;
+    color:white;
+}
+.interest{
+    background-color: #ED8C2B;
+    color:white;
+}
+.balance{
+    background-color: #B8204C;
+    color:white;
+}
+
+.date-class{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+
+.fi-yr-col{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    line-height: 0.5;
+    cursor: pointer;
+    border: none;
+
+    
+}
+
+.mon-rows{
+    background-color: #DEDEDE;
+    display: none;
+}
+
+.fi-mo-col{
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items:center; 
+    line-height: 0.5;
+    border: none;
+}
+
+.monsRow_View{
+    display:table-row;
+}
+
+
+.big-Chart {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+    box-sizing: border-box;
+    /* border: 1px solid red;  */
+
+    margin-bottom: 30px;
+
+}
+.big-Chart div{
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    /* border: 1px solid red; */
+
+}
+
+#my-Big-Chart{
+    width: 100%;
+    /* border: 1px solid red; */
+}
