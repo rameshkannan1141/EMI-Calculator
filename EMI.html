@@ -28,11 +28,12 @@
             <div class="sub-whole-wrapper">
 
                 <div class="amount-div">
-                    <div>
+                    <div class="topInp-div"><div>
                         <p>Home Loan Amount</p>
                         <span id="HLA-span"> <input type="number" id="HLA-inp" min="0"  value="0" onchange="onchangeRange(this)" ><label for="" id="a-INR">&#8377;</label> </span>
     
-                    </div>
+                    </div></div>
+
                     <input class="SWW-range" id="HLA-range"  type="range"  min="0" max="200" value="0" onchange="onchangeRange(this)">
                     
                     <div id="measure-div">
@@ -53,11 +54,12 @@
                 </div>
     
                 <div class="interestRate-div">
-                    <div>
+                    <div class="topInp-div"><div>
                         <p>Interest Rate</p>
                         <span id="IR-span"><input type="number" id="IR-inp" min="0"  value="0" onchange="onchangeRange(this)" ><label for="" id="r-PER">&#x25;</label></span>
     
-                    </div>
+                    </div></div>
+
                     <input class="SWW-range" id="IR-range" type="range" min="50" max="200" value="0"  onchange="onchangeRange(this)">
 
                     <div id="measure-div">
@@ -78,11 +80,12 @@
                 </div>
     
                 <div class="Tenure-div">
-                    <div>
+                    <div class="topInp-div"><div>
                         <p>Loan Tenure</p>
                         <span id="T-span"> <input type="number" id="T-inp" min="0" value="0" onchange="onchangeRange(this)" > <label for="" id="t-YR">Yr</label> <label for="" id="t-MON">Mo</label></span>
     
-                    </div>
+                    </div></div>
+
                     <input class="SWW-range" id="T-range" type="range" min="0" max="360" value="0" onchange="onchangeRange(this)">
                     
                     <div id="measure-div">
@@ -147,7 +150,7 @@
 
             <div class="date-class">
                 <p>Schedule showing EMI payments starting from</p>
-                 <input type="month" id="date-inp" onchange="year_Month_Func()">
+                 <input type="month" id="date-inp" onchange="EMI_calculation()">
             </div>
 
             
@@ -213,3 +216,4 @@
 
 <script src="EMI.js"></script>
 </html>
+
