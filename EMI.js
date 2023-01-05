@@ -222,7 +222,7 @@ T_YR.addEventListener("click",()=>{
 
     
     if(YR_ClickCount==0){
-        T_INP.value = 24
+        T_INP.value = 60
     }
     YR_ClickCount = 1;
 
@@ -506,8 +506,6 @@ let myChart;
 
 var pieChart = function(PrincipalPer,TotalInterestPer){
 
-    
-
     const ctx = document.getElementById('myChart');
     const details = [Number(PrincipalPer),Number(TotalInterestPer)]
 
@@ -523,7 +521,9 @@ var pieChart = function(PrincipalPer,TotalInterestPer){
           label: '# of Percentage',
           data: details,
           borderWidth: 1,
-          backgroundColor:['#ED8C2B','#88A825']
+          backgroundColor:['#ED8C2B','#88A825'],
+          
+
         }]
       },
 
@@ -551,155 +551,168 @@ const updateChart = (PrincipalPer,TotalInterestPer)=>{
 }
 
 
+
+
+
 let my_BigChart ;
-let my_barChart_Princ;
 
 
-var getValues_InArray =  function(){
+var bigChart = function(labelsData,intData,princData,balData){
 
-// console.log(lineData.datasets[0].data);
+    const labelsArray  = labelsData;
+    const intArray = intData;
+    const princArray = princData;
+    const balArray = balData;
 
-    if(my_BigChart){
+    const ctx = document.getElementById('my-Big-Chart');
+    // const details = [Number(PrincipalPer),Number(TotalInterestPer)]
 
-    //     for(i=0; i < yr_Data_Array.length ; i++){
-    //     data.labels.shift();
+    // console.log(details);
 
-    //     data.datasets[0][0].data.shift();   
-    //     data.datasets[1][0].data.shift();
-    //     data.datasets[1][1].data.shift();
-        
-       
-    // }
-
-    // console.log(data.datasets[0][0].data);
-        
-    update_Big_Chart();
-
-    }else{
-
-
-
-     for(i=0; i < yr_Data_Array.length ; i++){
-    data.labels[i] = yr_Data_Array[i][0];
-
-
-    data.datasets[0][0].data[i] = yr_Data_Array[i][4];
-    data.datasets[1][0].data[i] = yr_Data_Array[i][1];
-    data.datasets[1][1].data[i] = yr_Data_Array[i][2];
-
-//    console.log(data.datasets[0][0].data[i]);
-//    console.log(data.datasets[1][0].data[i]);
-//    console.log(data.datasets[1][1].data[i]);
-
-}
-
-        big_ChartCall();
+    my_BigChart =  new Chart(ctx, {
     
+      data: {
+        labels: labelsArray ,
 
-}
+        datasets: [
+            
+                    {
+                      label: 'Interest',
+                      data: intArray,
+                      backgroundColor: '#ED8C2B',
+                      borderColor: '#ED8C2B',
+                      borderWidth: 1,
+                      type:'bar',
+                      order:3,
+                    
+                    },
+                    {
+                        label: 'Principal',
+                        data: princArray,
+                        backgroundColor: '#89B504',
+                        borderColor: '#89B504',
+                        borderWidth: 1,
+                        type:'bar',
+                        order:2,
+                        
+                      },
 
-}
-
-
-// setup 
-const data = {
-    labels: [],
-
-    datasets: [
-        [{
-            label: 'Balance',
-            data: ['hi'],
-            fill: false,
-            borderColor: 'red',
-            backgroundColor:'red',
-            tension: 0.1,
-            type:'line',
-            order:1,
-        }],
+                      {
+                        label: 'Balance',
+                        data: balArray,
+                        backgroundColor: 'red',
+                        borderColor: 'red',
+                        borderWidth: 1,
+                        type:'line',
+                        order:1,
+                        yAxisID:'balance',
+                      },
+          
         
-    [{
-      label: 'Principal',
-      data: [],
-      backgroundColor: '#88A825',
-      borderColor:'#88A825',
-      borderWidth: 1,
-      type:'bar',
-      order:2,
+        ]
+      },
+
+    options: {
+        scales: {
+            x:{
+               stacked:true,
+               grid:{
+                display:false,
+                },
+            },
+            y: {
+                beginAtZero: true,
+                stacked:true,
+                type:'linear',
+            },
+           balance:{
+                beginAtZero:true,
+                type:'linear',
+                position:'right',
+                grid:{
+                    display:false,
+                }
+            },
+        },
+        
+        plugins:{
+            legend:{
+               display:true,
+                position:'bottom',
+            },
+        },
+
+        
     },
 
-    {
-        label: 'Interest',
-        data: [],
-        backgroundColor: '#FC7E00',
-        borderColor: '#FC7E00',
-        borderWidth: 1,
-        type:'bar',
-        order:3,
-      }],
 
-    ]
-  };
+    });
 
-
-  // config 
-  const Config = {
-    data,
-    options: {
-        plugins:{
-            tooltip:{
-                enabled:true,
-            }
-
-        },
-      scales: {
-        x:{
-         stacked:true,
-        },
-        y: {
-          beginAtZero: true,
-          stacked:true,
-        },
-        
-      }
-    }
-  };
-
-  
-
-
-  // render init block
-
-  var big_ChartCall = function(){
-
-    my_BigChart = new Chart(
-        document.getElementById('my-Big-Chart'),
-        Config,
-        );
-
-      
-
-  }
-
-
-
-
-
-
-
-var tempYR_Count=0;
-
-function update_Big_Chart(){
-    for(i=0; i < yr_Data_Array.length ; i++){
-        data.labels[i] = yr_Data_Array[i][0];
-
-        data.datasets[0][0].data[i] = yr_Data_Array[i][4];
-        data.datasets[1][0].data[i] = yr_Data_Array[i][1];
-        data.datasets[1][1].data[i] = yr_Data_Array[i][2];
-       
-        }
-    
-       my_BigChart.update();
 }
+
+var labelArr=[];
+var princData=[];
+var intData =[];
+var balData=[];
+
+ function getValues_InArray(){
+
+    
+    
+
+    for(i = 0; i < yr_Data_Array.length ; i++){
+        labelArr.push(yr_Data_Array[i][0]);
+        princData.push(yr_Data_Array[i][1]);
+        intData.push(yr_Data_Array[i][2]);
+        balData.push(yr_Data_Array[i][4]);
+    }
+
+    if(my_BigChart){
+        update_BigCahrt(labelArr,princData,intData,balData);
+        
+    }else{
+        bigChart(labelArr,princData,intData,balData);
+        
+
+    }
+    // console.log(yr_Data_Array);
+    labelArr=[];
+    princData=[];
+    intData=[];
+    balData=[];
+
+    console.log(my_BigChart.data.datasets[0].data)
+
+    
+}
+
+
+
+const update_BigCahrt = (labelArr,princData,intData,balData)=>{
+
+    
+    for(i = 0; i < yr_Data_Array.length ; i++){
+
+        my_BigChart.data.labels[i] = labelArr[i];
+        my_BigChart.data.datasets[1].data[i] = princData[i];
+        my_BigChart.data.datasets[0].data[i] = intData[i];
+        my_BigChart.data.datasets[2].data[i] = balData[i];
+
+
+
+    }
+    
+    my_BigChart.update();
+
+    my_BigChart.data.labels = [];
+    my_BigChart.data.datasets[1].data[i] = [];
+    my_BigChart.data.datasets[0].data[i] = [];
+    my_BigChart.data.datasets[2].data[i] = [];
+
+
+}
+
+
 
 
 
@@ -867,7 +880,7 @@ function year_Func(){
         store_Yr_Col += yr_Col_Create(temp_start_Yr);
     
         
-        
+        console.log(start_Mo)
 
         for( j = start_Mo-1 ; j < months.length ; j++){
 
@@ -881,6 +894,7 @@ function year_Func(){
         //    paidPercent += paidPercent
         
         // console.log(tempPercent)
+
         store_Yr_Col += mon_Col_Create(months[j],temp_start_Yr,Math.round(monthlyPrincipal_A),Math.round(monthlyInterst_B),Math.round(total_A_B),Math.round(principalAmount),paidPercent.toFixed(2));
 
         
@@ -889,11 +903,6 @@ function year_Func(){
         yr_monthlyInterst_B +=  monthlyInterst_B ;
         yr_total_A_B += total_A_B;
         
-        
-
-        
-           
-
         simple_InterestCalculation(principalAmount);
 
             if(j == 11 ){
@@ -933,15 +942,18 @@ function year_Func(){
         
     }
 
-    temp_start_Yr = start_Yr;
+    // temp_start_Yr = start_Yr;
     TABLE_CLASS.innerHTML = store_Yr_Col; 
 
     yrColumn_Data();
+
+    yr_Data_Array = [];
 
 
 }
 
 const YR_ROWS = document.getElementsByClassName("yr-rows");
+
 var yrColumn_Data = function(){
 
     // console.log(YR_ROWS[0].children[1]) ;
