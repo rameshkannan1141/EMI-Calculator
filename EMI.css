@@ -7,7 +7,7 @@ body{
     justify-content: center;
     
     
-    padding-top: 10%;
+    padding-top: 5%;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
     
     
@@ -20,7 +20,7 @@ body{
 .outer-wrapper{
     background-color: rgb(238, 238, 238);
     padding: 10px;
-    width: 85%;
+    width: 60%;
 }
 
 .whole-wrapper{
@@ -108,11 +108,29 @@ body{
 
 .amount-div div,.interestRate-div div,.Tenure-div div{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
 
-   
+}
+
+.topInp-div{
+    /* border: 1px solid red; */
     
+
+}
+.topInp-div > div{
+    display: flex;
+    justify-content: flex-start;
+    width: 60%;
+    /* border: 1px solid red; */
+
+}
+
+.topInp-div > div > p {
+    /* border: 1px solid red; */
+    width: 200px;
+    text-align: right;
+    padding-right:40px;
 }
 
 #HLA-span,#IR-span,#T-span{
